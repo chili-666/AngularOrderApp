@@ -1,2 +1,0 @@
-# AngularOrderApp
-Created with CodeSandbox

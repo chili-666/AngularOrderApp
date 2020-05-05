@@ -1,0 +1,40 @@
+<button mat-raised-button (click)="showMyCart=!showMyCart" *ngIf="!showMyCart">
+  <mat-icon>shopping_cart</mat-icon>
+</button>
+<mat-card class="showCart mat-elevation-z3" *ngIf="showMyCart">
+  <button mat-raised-button (click)="showMyCart=!showMyCart" *ngIf="showMyCart">
+    <mat-icon>clear</mat-icon>
+  </button>
+  <div class="cart-container">
+    <div class="cart-payme">
+      <app-cart class="cart-flex" [cart]="cart" [total]="total"></app-cart>
+    </div>
+  </div>
+</mat-card>
+<div class="product-container">
+  <mat-card
+    class="mat-elevation-z3"
+    *ngFor="let product of products; let x = index"
+  >
+    <mat-card-title>{{product.name}}</mat-card-title>
+    <mat-card-content>{{product.description}}</mat-card-content>
+    <mat-card-actions>
+      <select
+        [formControl]="sizeControl"
+        (change)="selectSize(x, $event.target.value)"
+      >
+        <option *ngFor="let size of product.size; let i = index" value="{{i}}"
+          >{{size}}</option
+        >
+      </select>
+    </mat-card-actions>
+    <mat-card-footer class="mat-card-footer"
+      ><p *ngIf="product.selectedPrice > 0">
+        Preis: {{product.selectedPrice}} €
+      </p>
+      <button mat-raised-button color="primary" (click)="clickHandler(x, i)">
+        <mat-icon>add_shopping_cart</mat-icon>
+      </button></mat-card-footer
+    >
+  </mat-card>
+</div>
