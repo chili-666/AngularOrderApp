@@ -1,6 +1,25 @@
-<button mat-raised-button (click)="showMyCart=!showMyCart" *ngIf="!showMyCart">
-  <mat-icon>shopping_cart</mat-icon>
-</button>
+<div class="navbar">
+  <button
+    mat-raised-button
+    (click)="showMyCart=!showMyCart"
+    *ngIf="!showMyCart"
+    matBadge="{{cartBadge}}"
+    matBadgeColor="warn"
+  >
+    <mat-icon>shopping_cart</mat-icon>
+  </button>
+
+  <ng-container *ngIf="!showMyCart">
+    <button mat-raised-button (click)="listView=!listView" *ngIf="!listView">
+      <mat-icon>view_list</mat-icon>
+    </button>
+
+    <button mat-raised-button (click)="listView=!listView" *ngIf="listView">
+      <mat-icon>view_module</mat-icon>
+    </button>
+  </ng-container>
+</div>
+
 <mat-card class="showCart mat-elevation-z3" *ngIf="showMyCart">
   <button mat-raised-button (click)="showMyCart=!showMyCart" *ngIf="showMyCart">
     <mat-icon>clear</mat-icon>
@@ -11,30 +30,64 @@
     </div>
   </div>
 </mat-card>
-<div class="product-container">
-  <mat-card
-    class="mat-elevation-z3"
-    *ngFor="let product of products; let x = index"
-  >
-    <mat-card-title>{{product.name}}</mat-card-title>
-    <mat-card-content>{{product.description}}</mat-card-content>
-    <mat-card-actions>
-      <select
-        [formControl]="sizeControl"
-        (change)="selectSize(x, $event.target.value)"
-      >
-        <option *ngFor="let size of product.size; let i = index" value="{{i}}"
-          >{{size}}</option
-        >
-      </select>
-    </mat-card-actions>
-    <mat-card-footer class="mat-card-footer"
-      ><p *ngIf="product.selectedPrice > 0">
-        Preis: {{product.selectedPrice}} €
-      </p>
-      <button mat-raised-button color="primary" (click)="clickHandler(x, i)">
-        <mat-icon>add_shopping_cart</mat-icon>
-      </button></mat-card-footer
+<div>
+  <div *ngIf="!listView" class="product-container">
+    <mat-card
+      class="mat-elevation-z3"
+      *ngFor="let product of products; let productIndex = index"
     >
-  </mat-card>
+      <mat-card-title>{{product.name}}</mat-card-title>
+      <mat-card-actions>
+        <select
+          [formControl]="sizeControl"
+          (change)="selectSize(productIndex, $event.target.value)"
+        >
+          <option *ngFor="let size of sizes" value="{{size}}"
+            >{{size}} gr</option
+          >
+          >
+        </select>
+      </mat-card-actions>
+      <mat-card-footer class="mat-card-footer">
+        <button
+          mat-raised-button
+          color="primary"
+          (click)="clickHandler(productIndex)"
+        >
+          <mat-icon>add_shopping_cart</mat-icon>
+        </button></mat-card-footer
+      >
+    </mat-card>
+  </div>
+
+  <div *ngIf="listView">
+    <mat-grid-list cols="3" rowHeight="4em" class="productList">
+      <ng-container
+        class="productListItem"
+        *ngFor="let product of products; let productIndex = index"
+      >
+        <mat-grid-tile>{{product.name}}</mat-grid-tile>
+        <mat-grid-tile
+          ><select
+            [formControl]="sizeControl"
+            (change)="selectSize(productIndex, $event.target.value)"
+          >
+            <option *ngFor="let size of sizes" value="{{size}}"
+              >{{size}} gr</option
+            >
+            >
+          </select></mat-grid-tile
+        >
+        <mat-grid-tile
+          ><button
+            mat-raised-button
+            color="primary"
+            (click)="clickHandler(productIndex)"
+          >
+            <mat-icon>add_shopping_cart</mat-icon>
+          </button></mat-grid-tile
+        >
+      </ng-container>
+    </mat-grid-list>
+  </div>
 </div>

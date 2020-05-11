@@ -1,0 +1,31 @@
+<ng-container *ngIf="setShowThankYou">
+  <h1>Vielen Dank für Ihren Einkauf!</h1>
+  <p>Wir senden Ihnen umgehend eine Email mit Ihrer Bestelldetails zu.</p>
+</ng-container>
+<ng-container *ngIf="!setShowThankYou">
+  <h3 class="cart-title">Ihr Einkaufswagen</h3>
+  <div class="cart" *ngFor="let item of cart; let x = index">
+    <div>{{item.name}}</div>
+    <div>Größe: {{item.selectedSize}} gr</div>
+    <button
+      mat-raised-button
+      color="primary"
+      [formControl]="cartControl"
+      (click)="deleteProduct($event)"
+      value="{{item.id}}"
+      name="deleteProduct"
+      ngDefaultControl
+    >
+      <mat-icon>delete</mat-icon>
+    </button>
+  </div>
+  <div class="total" *ngIf="total > 0">
+    <strong>Gesamt: {{ total }} €</strong>
+  </div>
+
+  <app-payme
+    [cart]="cart"
+    [total]="total"
+    (isPaidFor)="paidForHandler($event)"
+  ></app-payme>
+</ng-container>

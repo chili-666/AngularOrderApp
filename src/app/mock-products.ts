@@ -1,58 +1,37 @@
-import { Product } from './product';
+import { Product } from "./product";
 
 export const PRODUCTS: Product[] = [
- {
-     id:111,
-     name: "Produkt1",
-     description:"Tolle Beschreibung 1",
-     price: [1,2,3,4],
-     size: [5,10,50,500],
-     selectedSize: 0,
-     selectedPrice: 0
-},
-{
-    id:222,
-    name: "Produkt2",
-    description:"Tolle Beschreibung 2",
-    price: [5,6,7,8],
-    size: [6,12,18,24,],
-    selectedSize: 0,
-    selectedPrice: 0
-},
-{
-    id:333,
-    name: "Produkt3",
-    description:"Tolle Beschreibung 3",
-    price: [1,2,3,4],
-    size: [5,10,50,500],
-    selectedSize: 0,
-    selectedPrice: 0
-},
-{
-   id:444,
-   name: "Produkt4",
-   description:"Tolle Beschreibung 4",
-   price: [5,6,7,8],
-   size: [6,12,18,24,],
-   selectedSize: 0,
-   selectedPrice: 0
-},
-{
-    id:555,
-    name: "Produkt5",
-    description:"Tolle Beschreibung 5",
-    price: [1,2,3,4],
-    size: [5,10,50,500],
-    selectedSize: 0,
-    selectedPrice: 0
-},
-{
-   id:666,
-   name: "Produkt6",
-   description:"Tolle Beschreibung 6",
-   price: [5,6,7,8],
-   size: [6,12,18,24,],
-   selectedSize: 0,
-   selectedPrice: 0
-}
+  { id: 10010, name: "Tilray 25 Hybrid (Pink Kush) 25,7 % THC" },
+  { id: 10020, name: "Peace Nat 22/1  22,2 % THC (Kush- Indica)" },
+  { id: 10030, name: "Neu Peace Nat 24/1 Ende der Woche" },
+  { id: 10040, name: "Pedanios 22/1  Sativa 21,4 % THC" },
+  { id: 10050, name: "Pedanios 20/1 Indica 20 % THC" },
+  { id: 10060, name: "Pedanios 18/1 Sativa ca 19 % THC " },
+  { id: 10070, name: "Pedanios 14/1  Indica 14 % THC" },
+  { id: 10080, name: "Pedanios 8/8  Hybrid 8 % THC 8 %  " },
+  { id: 10090, name: "Aurora 1/12      Hybrid CBD 12,5 %" },
+  { id: 10100, name: "Cannamedical Hybrid Light 15% (White Widow)" },
+  { id: 10110, name: "Cannamedical Sativa Light (Amnesia Haze) " },
+  { id: 10120, name: "Cannamedical CBD  THC 6,1 CBD 8,8(Cali-O) " },
+  { id: 10130, name: "Cannamedical Indica Light 16 % (Blue Berry)" },
+  { id: 10140, name: "Cannamedical Indica (Dark Star) 20 % THC" },
+  { id: 10150, name: "Cannamedical Hybrid ca 19 % (Headband) " },
+  { id: 10160, name: "Cannamedical Hybrid ca 19% ( Jean Guy) " },
+  { id: 10170, name: "In Klammern steht das Cultivar(Strain)" },
+  { id: 10180, name: "Bitte Cultivar nicht mit aufs Rezept schreiben." },
+  { id: 10190, name: "Bedrocan ca 22 % THC (Sativa)" },
+  { id: 10200, name: "Bedrobinol ca. 14 % THC (Indica) " },
+  { id: 10210, name: "Bediol       ca 8,5 % THC  7,6 % CBD (Hybrid)" },
+  { id: 10220, name: "Bedica      ca 14 % THC (Sativa)" },
+  { id: 10230, name: "Bedrolite  ca 10 % CBD (Sativa)" },
+  { id: 10240, name: "Argyle ca 5,5 % THC und CBD (Hybrid) " },
+  { id: 10250, name: "Penelope ca 9% THC und CBD " },
+  { id: 10260, name: "Red No 4 (Indica) 21,8 % THC  " },
+  { id: 10270, name: "Orange No 1  (Indica)ca 12 % THC " },
+  { id: 10280, name: "Red No 2  16,1 THC (Sativa) " },
+  { id: 10290, name: "Green No 3  6,3 % THC 10,6 % CBD " },
+  { id: 10300, name: "Blue No 3. ca 6 % THC 7 % CBD (Hybrid)" },
+  { id: 10310, name: "Bakerstreet 20,2 % THC (Kush) " },
+  { id: 10320, name: "Tilray 10mg/ml THC 10mg/ml CBD Extrakt" },
+  { id: 10330, name: "Tilray 25mg/ml THC Extrakt  " }
 ];
